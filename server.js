@@ -1,5 +1,4 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 const port = 5000;
 const app = express();
@@ -47,7 +46,7 @@ let friends = [
   }
 ];
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 app.use(cors());
 
@@ -62,7 +61,7 @@ function authenticator(req, res, next) {
 
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
-  if (username === 'BloomTech' && password === 'i<3Lambd4') {
+  if (username === 'Hithere' && password === 'tree123') {
     req.loggedIn = true;
     res.status(200).json({
       payload: token
